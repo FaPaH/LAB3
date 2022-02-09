@@ -2,9 +2,11 @@ package sumdu.edu.ua.radchenko.lab3.services;
 
 import sumdu.edu.ua.radchenko.lab3.model.Movie;
 
+import java.util.concurrent.CompletableFuture;
+
 public interface MovieService {
 
-    Movie getMovieByName(String movieName);
+    CompletableFuture<Movie> getMovieByName(String movieName);
 
-    Movie getMovieById(String movieId);
+    CompletableFuture<Movie> getMovieById(String movieId);
 }

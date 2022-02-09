@@ -13,6 +13,9 @@ import sumdu.edu.ua.radchenko.lab3.model.Movie;
 import sumdu.edu.ua.radchenko.lab3.model.POIDocCreator;
 import sumdu.edu.ua.radchenko.lab3.services.MovieService;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
 @RestController
 public class MainController {
 
@@ -38,30 +41,40 @@ public class MainController {
         this.movieServiceImpl = movieServiceImpl;
     }
 
-    @RequestMapping("/")
-    public ResponseEntity<?> index(){
-        logger.info("index");
-        return ResponseEntity.ok("");
-    }
-
     @RequestMapping("/findByName")
     public ResponseEntity<?> findByName(@RequestParam(value = "movieName", defaultValue = "No value") String movieName){
-        Movie movie = movieServiceImpl.getMovieByName(movieName);
+        logger.info("calling find by name movie:" + movieName);
+
+        CompletableFuture<Movie> movie = movieServiceImpl.getMovieByName(movieName);
         if (movie == null){
             return ResponseEntity.ok("Cant find this film by name: " + movieName);
         }
-        logger.info("calling find by name movie:" + movieName);
-        return getResponseEntity(movie);
+
+        try {
+            return getResponseEntity(movie.get());
+        } catch (InterruptedException | ExecutionException e){
+            logger.error("Error in executing thread in findById: " + e.getMessage());
+        }
+
+        return ResponseEntity.ok("Error with executing");
     }
 
     @RequestMapping("/findById")
     public ResponseEntity<?> findById(@RequestParam(value = "movieId", defaultValue = "No value") String movieId){
-        Movie movie = movieServiceImpl.getMovieById(movieId);
+        logger.info("calling find by id movie:" + movieId);
+
+        CompletableFuture<Movie> movie = movieServiceImpl.getMovieById(movieId);
         if (movie == null){
             return ResponseEntity.ok("Cant find this film by this id: " + movieId);
         }
-        logger.info("calling find by id movie:" + movieId);
-        return getResponseEntity(movie);
+
+        try {
+            return getResponseEntity(movie.get());
+        } catch (InterruptedException | ExecutionException e){
+            logger.error("Error in executing thread in findById: " + e.getMessage());
+        }
+
+        return ResponseEntity.ok("Error with executing");
     }
 
     private ResponseEntity<?> getResponseEntity(Movie movie) {

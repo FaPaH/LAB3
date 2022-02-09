@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sumdu.edu.ua.radchenko.lab3.model.DocCreator;
 import sumdu.edu.ua.radchenko.lab3.model.Movie;
+import sumdu.edu.ua.radchenko.lab3.model.POIDocCreator;
 import sumdu.edu.ua.radchenko.lab3.services.MovieService;
 
 @RestController
@@ -20,6 +21,12 @@ public class MainController {
     private MovieService movieServiceImpl;
 
     private DocCreator docCreator;
+    private POIDocCreator poiDocCreator;
+
+    @Autowired
+    public void setPoiDocCreator(POIDocCreator poiDocCreator) {
+        this.poiDocCreator = poiDocCreator;
+    }
 
     @Autowired
     public void setDocCreator(DocCreator docCreator) {
@@ -29,6 +36,12 @@ public class MainController {
     @Autowired
     public void setMovieService(MovieService movieServiceImpl) {
         this.movieServiceImpl = movieServiceImpl;
+    }
+
+    @RequestMapping("/")
+    public ResponseEntity<?> index(){
+        logger.info("index");
+        return ResponseEntity.ok("");
     }
 
     @RequestMapping("/findByName")
@@ -53,15 +66,16 @@ public class MainController {
 
     private ResponseEntity<?> getResponseEntity(Movie movie) {
         docCreator.generateDoc(movie);
-        return ResponseEntity.ok("movieName=" + movie.getMovieName() + "<br>" +
-                "release=" + movie.getRelease() + "<br>" +
-                "runtime=" + movie.getRuntime() + "<br>" +
-                "genre=" + movie.getGenre() + "<br>" +
-                "directors=" + movie.getDirectors() + "<br>" +
-                "writers=" + movie.getWriters() + "<br>" +
-                "actors=" + movie.getActors() + "<br>" +
-                "plot=" + movie.getPlot() + "<br>" +
-                "ratings=" + movie.getRatings());
+        poiDocCreator.generateDocPOI(movie);
+        return ResponseEntity.ok("movieName = " + movie.getMovieName() + "<br>" +
+                "release = " + movie.getRelease() + "<br>" +
+                "runtime = " + movie.getRuntime() + "<br>" +
+                "genre = " + movie.getGenre() + "<br>" +
+                "directors = " + movie.getDirectors() + "<br>" +
+                "writers = " + movie.getWriters() + "<br>" +
+                "actors = " + movie.getActors() + "<br>" +
+                "plot = " + movie.getPlot() + "<br>" +
+                "ratings = " + movie.getRatings());
     }
 }
 

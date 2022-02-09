@@ -27,7 +27,7 @@ public class DocCreator {
 
     public void generateDoc(Movie movie){
 
-        logger.info("calling find by id movie:" + movie.getMovieName());
+        logger.info("calling generateDoc:" + movie.getMovieName());
         //Create a Document instance
         Document document = new Document();
 

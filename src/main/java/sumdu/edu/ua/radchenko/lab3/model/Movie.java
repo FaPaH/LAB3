@@ -1,9 +1,7 @@
 package sumdu.edu.ua.radchenko.lab3.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 public class Movie {
 

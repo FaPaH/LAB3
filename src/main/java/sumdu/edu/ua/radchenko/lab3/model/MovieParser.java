@@ -1,14 +1,10 @@
 package sumdu.edu.ua.radchenko.lab3.model;
 
-import com.spire.doc.*;
-import com.spire.doc.documents.*;
-import com.spire.doc.fields.TextRange;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;

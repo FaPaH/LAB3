@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-import sumdu.edu.ua.radchenko.lab3.connection.ConnectionImpl;
 
 import java.awt.*;
 

@@ -10,10 +10,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import sumdu.edu.ua.radchenko.lab3.model.MovieParser;
-import sumdu.edu.ua.radchenko.lab3.model.POIDocCreator;
-
-import java.util.concurrent.Executor;
 
 @SpringBootApplication
 @EnableAsync

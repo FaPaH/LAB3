@@ -1,2 +1,28 @@
 2022-02-09 17:50:04 INFO  MovieServiceImpl:22 - Call getMovieByName for: Batman
 2022-02-09 17:50:05 INFO  MainController:30 - calling find by name movie:Batman
+2022-02-09 17:56:12 INFO  MovieServiceImpl:22 - Call getMovieByName for: Batman
+2022-02-09 17:56:13 INFO  MainController:30 - calling find by name movie:Batman
+2022-02-09 17:56:23 INFO  MovieServiceImpl:27 - Call getMovieByName for: Batman
+2022-02-09 17:56:51 INFO  MovieServiceImpl:27 - Call getMovieByName for: tt1285016
+2022-02-09 17:56:51 INFO  MainController:48 - calling find by id movie:tt1285016
+2022-02-09 17:57:14 INFO  MovieServiceImpl:27 - Call getMovieByName for: dsfs
+2022-02-09 17:59:31 INFO  MovieServiceImpl:27 - Call getMovieByName for: dsfs
+2022-02-09 18:00:11 INFO  MovieServiceImpl:27 - Call getMovieByName for: dsfs
+2022-02-09 18:01:44 INFO  MovieServiceImpl:27 - Call getMovieByName for: dsfs
+2022-02-09 18:01:56 INFO  MovieServiceImpl:27 - Call getMovieByName for: tt1285016
+2022-02-09 18:03:06 INFO  MovieServiceImpl:27 - Call getMovieByName for: tt1285016
+2022-02-09 18:03:06 INFO  MainController:48 - calling find by id movie:tt1285016
+2022-02-09 18:03:13 INFO  MovieServiceImpl:27 - Call getMovieByName for: gkck
+2022-02-09 18:19:16 INFO  MovieServiceImpl:22 - Call getMovieByName for: Batman
+2022-02-09 18:20:04 INFO  MovieServiceImpl:22 - Call getMovieByName for: Batman
+2022-02-09 18:20:05 INFO  MainController:30 - calling find by name movie:Batman
+2022-02-09 18:28:59 INFO  MovieServiceImpl:22 - Call getMovieByName for: Batman
+2022-02-09 18:29:00 INFO  MainController:38 - calling find by name movie:Batman
+2022-02-09 18:29:00 INFO  DocCreator:18 - calling find by id movie:Batman
+2022-02-09 18:29:43 INFO  MovieServiceImpl:22 - Call getMovieByName for: Superman
+2022-02-09 18:29:44 INFO  MainController:38 - calling find by name movie:Superman
+2022-02-09 18:29:44 INFO  DocCreator:18 - calling find by id movie:Superman
+2022-02-09 18:40:01 INFO  MovieServiceImpl:22 - Call getMovieByName for: Superman
+2022-02-09 18:40:02 INFO  MainController:38 - calling find by name movie:Superman
+2022-02-09 18:40:02 INFO  DocCreator:30 - calling find by id movie:Superman
+2022-02-09 18:40:11 INFO  DocCreator:103 - exit from generateDoc

@@ -75,8 +75,11 @@ public class ConnectionImpl implements Connection{
             URL url = new URL(urlString + "t=" + movieName);
             HttpURLConnection connection = getConnection(url);
             JSONObject jsonObject = new JSONObject(parseStream(connection.getInputStream()));
-            return movieParser.movieParser(jsonObject);
 
+            if (jsonObject.has("Error")){
+                return null;
+            }
+            return movieParser.movieParser(jsonObject);
         } catch (IOException e){
             logger.error("Error in getMovieByName: " + e.getMessage());
         }
@@ -89,6 +92,10 @@ public class ConnectionImpl implements Connection{
             URL url = new URL(urlString + "i=" + movieId);
             HttpURLConnection connection = getConnection(url);
             JSONObject jsonObject = new JSONObject(parseStream(connection.getInputStream()));
+
+            if (jsonObject.has("Error")){
+                return null;
+            }
             return movieParser.movieParser(jsonObject);
         } catch (IOException e){
             logger.error("Error in getMovieById: " + e.getMessage());

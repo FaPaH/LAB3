@@ -1,0 +1,2 @@
+2022-02-09 17:50:04 INFO  MovieServiceImpl:22 - Call getMovieByName for: Batman
+2022-02-09 17:50:05 INFO  MainController:30 - calling find by name movie:Batman

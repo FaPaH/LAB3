@@ -1,4 +1,4 @@
-package sumdu.edu.ua.radchenko.lab3.model;
+package sumdu.edu.ua.radchenko.lab3.model.docImpl;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -10,21 +10,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import sumdu.edu.ua.radchenko.lab3.model.DocCreator;
+import sumdu.edu.ua.radchenko.lab3.model.Movie;
 
 @Component
 @PropertySource("classpath:application.properties")
-public class POIDocCreator {
+public class POIDocCreator implements DocCreator {
 
     private String path;
 
-    private final static Logger logger = Logger.getLogger(DocCreator.class);
+    private final static Logger logger = Logger.getLogger(DocCreatorE.class);
 
     @Autowired
     public void setPath(@Value("${directory.path}")  String path) {
         this.path = path;
     }
 
-    public void generateDocPOI(Movie movie){
+    @Override
+    public void generateDoc(Movie movie){
 
         logger.info("calling generateDocPOI:" + movie.getMovieName());
 

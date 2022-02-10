@@ -1,4 +1,4 @@
-package sumdu.edu.ua.radchenko.lab3.connection;
+package sumdu.edu.ua.radchenko.lab3.connection.connectionImpl;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import sumdu.edu.ua.radchenko.lab3.connection.Connection;
 import sumdu.edu.ua.radchenko.lab3.model.Movie;
 import sumdu.edu.ua.radchenko.lab3.model.MovieParser;
 
@@ -20,7 +21,7 @@ import java.net.URL;
 @Component
 @Scope
 @PropertySource("classpath:application.properties")
-public class ConnectionImpl implements Connection{
+public class ConnectionImpl implements Connection {
 
     private final static Logger logger = Logger.getLogger(ConnectionImpl.class);
 

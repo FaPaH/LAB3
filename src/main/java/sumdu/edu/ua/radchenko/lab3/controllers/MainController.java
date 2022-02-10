@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sumdu.edu.ua.radchenko.lab3.model.DocCreator;
+import sumdu.edu.ua.radchenko.lab3.model.docImpl.DocCreatorE;
 import sumdu.edu.ua.radchenko.lab3.model.Movie;
-import sumdu.edu.ua.radchenko.lab3.model.POIDocCreator;
+import sumdu.edu.ua.radchenko.lab3.model.docImpl.POIDocCreator;
 import sumdu.edu.ua.radchenko.lab3.services.MovieService;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -21,18 +23,24 @@ public class MainController {
 
     private MovieService movieServiceImpl;
 
-    private DocCreator docCreator;
-    private POIDocCreator poiDocCreator;
+//    private DocCreatorE docCreatorE;
+//    private POIDocCreator poiDocCreator;
 
-    @Autowired
-    public void setPoiDocCreator(POIDocCreator poiDocCreator) {
-        this.poiDocCreator = poiDocCreator;
+    private List<DocCreator> docCreatorList;
+
+    public MainController(List<DocCreator> docCreatorList){
+        this.docCreatorList = docCreatorList;
     }
 
-    @Autowired
-    public void setDocCreator(DocCreator docCreator) {
-        this.docCreator = docCreator;
-    }
+//    @Autowired
+//    public void setPoiDocCreator(POIDocCreator poiDocCreator) {
+//        this.poiDocCreator = poiDocCreator;
+//    }
+//
+//    @Autowired
+//    public void setDocCreator(DocCreatorE docCreatorE) {
+//        this.docCreatorE = docCreatorE;
+//    }
 
     @Autowired
     public void setMovieService(MovieService movieServiceImpl) {
@@ -76,8 +84,13 @@ public class MainController {
     }
 
     private ResponseEntity<?> getResponseEntity(Movie movie) {
-        docCreator.generateDoc(movie);
-        poiDocCreator.generateDocPOI(movie);
+
+        for (DocCreator docCreator : docCreatorList) {
+            docCreator.generateDoc(movie);
+        }
+        
+//        docCreatorE.generateDoc(movie);
+//        poiDocCreator.generateDoc(movie);
         return ResponseEntity.ok("movieName = " + movie.getMovieName() + "<br>" +
                 "release = " + movie.getRelease() + "<br>" +
                 "runtime = " + movie.getRuntime() + "<br>" +

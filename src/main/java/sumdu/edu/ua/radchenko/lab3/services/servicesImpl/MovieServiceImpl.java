@@ -1,16 +1,17 @@
-package sumdu.edu.ua.radchenko.lab3.services;
+package sumdu.edu.ua.radchenko.lab3.services.servicesImpl;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import sumdu.edu.ua.radchenko.lab3.connection.ConnectionImpl;
+import sumdu.edu.ua.radchenko.lab3.connection.connectionImpl.ConnectionImpl;
 import sumdu.edu.ua.radchenko.lab3.model.Movie;
+import sumdu.edu.ua.radchenko.lab3.services.MovieService;
 
 import java.util.concurrent.CompletableFuture;
 
 @Service
-public class MovieServiceImpl implements MovieService{
+public class MovieServiceImpl implements MovieService {
 
     private final static Logger logger = Logger.getLogger(MovieServiceImpl.class);
 

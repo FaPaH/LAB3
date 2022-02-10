@@ -2,6 +2,7 @@ package sumdu.edu.ua.radchenko.lab3.controllers;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,6 +49,7 @@ public class MainController {
     }
 
     @RequestMapping("/findByName")
+    @Cacheable
     public ResponseEntity<?> findByName(@RequestParam(value = "movieName", defaultValue = "No value") String movieName){
         logger.info("calling find by name movie:" + movieName);
 
@@ -66,6 +68,7 @@ public class MainController {
     }
 
     @RequestMapping("/findById")
+    @Cacheable
     public ResponseEntity<?> findById(@RequestParam(value = "movieId", defaultValue = "No value") String movieId){
         logger.info("calling find by id movie:" + movieId);
 

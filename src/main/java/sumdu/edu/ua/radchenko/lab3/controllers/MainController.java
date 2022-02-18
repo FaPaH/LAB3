@@ -87,8 +87,21 @@ public class MainController {
     }
 
     @RequestMapping("/message")
-    public String message(){
-        return "This is the message from lab3";
+    public String message(@RequestParam(value = "movieName", defaultValue = "No value") String movieName){
+        logger.info("calling message:" + movieName);
+
+        CompletableFuture<Movie> movie = movieServiceImpl.getMovieByName(movieName);
+
+        try {
+        if (movie == null){
+            return "This movie didnt exist";
+        }
+            return movie.get().toString();
+        } catch (InterruptedException | ExecutionException e){
+            logger.error("Error in executing thread in findById: " + e.getMessage());
+        }
+
+        return "Error with executing";
     }
 
     private ResponseEntity<?> getResponseEntity(Movie movie) {

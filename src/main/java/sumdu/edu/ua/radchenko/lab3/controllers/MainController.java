@@ -86,6 +86,11 @@ public class MainController {
         return ResponseEntity.ok("Error with executing");
     }
 
+    @RequestMapping("/message")
+    public String message(){
+        return "This is the message from lab3";
+    }
+
     private ResponseEntity<?> getResponseEntity(Movie movie) {
 
         for (DocCreator docCreator : docCreatorList) {
